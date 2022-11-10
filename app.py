@@ -135,4 +135,4 @@ def get_eur_pred():
     return predictions_EUR
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run()
