@@ -136,4 +136,4 @@ def main():
 
 if __name__ == '__main__':
     main()
-    schedule.every().day.at("15:00").do(main())
+    schedule.every().day.at("15:00").do(main)
