@@ -1,5 +1,4 @@
 # Stock Market Prediction And Forecasting Using Stacked LSTM
-from flask import Flask
 import itertools
 import pandas as pd
 import numpy as np
@@ -12,8 +11,6 @@ from sklearn.metrics import mean_squared_error
 from datetime import date, timedelta
 import requests
 import time
-
-app = Flask(__name__)
 
 # THIS FUNCTION CAN BE USED TO CREATE A TIME SERIES DATASET FROM ANY 1D ARRAY
 def new_dataset(dataset, step_size):
@@ -129,10 +126,4 @@ while i_EUR < 30:
         i_EUR = i_EUR + 1
 
 predictions_EUR = scaler_EUR.inverse_transform(lst_output_EUR).tolist()
-
-@app.route('/')
-def get_eur_pred():
-    return predictions_EUR
-
-if __name__ == "__main__":
-    app.run()
+print(predictions_EUR)
