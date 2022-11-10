@@ -2,6 +2,7 @@
 import itertools
 import pandas as pd
 import numpy as np
+import schedule
 from sklearn.preprocessing import MinMaxScaler
 from keras.models import Sequential
 from keras.layers import Dense
@@ -131,6 +132,8 @@ predictions_EUR = scaler_EUR.inverse_transform(lst_output_EUR).tolist()
 def main():
     st.title('Exchange Prediction EUR App')
     st.text(predictions_EUR)
+    st.json(predictions_EUR)
 
 if __name__ == '__main__':
     main()
+    schedule.every().day.at("15:00").do(main())
