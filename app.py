@@ -97,7 +97,7 @@ math.sqrt(mean_squared_error(y_train_EUR, train_predict_EUR))
 # Test Data RMSE
 math.sqrt(mean_squared_error(ytest_EUR, test_predict_EUR))
 
-print(len(test_data_EUR))  # 446
+# print(len(test_data_EUR))  # 446
 
 x_input_EUR = test_data_EUR[346:].reshape(1, -1)
 temp_input_EUR = list(x_input_EUR)
@@ -127,13 +127,10 @@ while i_EUR < 30:
         i_EUR = i_EUR + 1
 
 predictions_EUR = scaler_EUR.inverse_transform(lst_output_EUR).tolist()
-print(predictions_EUR)
 
 def main():
     st.title('Exchange Prediction EUR App')
     st.text(predictions_EUR)
-    time.sleep(86400)
-    st.experimental_rerun()
 
 if __name__ == '__main__':
     main()
