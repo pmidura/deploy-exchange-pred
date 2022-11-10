@@ -2,7 +2,6 @@
 import itertools
 import pandas as pd
 import numpy as np
-import schedule
 from sklearn.preprocessing import MinMaxScaler
 from keras.models import Sequential
 from keras.layers import Dense
@@ -136,4 +135,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-    schedule.every().day.at("15:00").do(main)
