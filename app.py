@@ -81,7 +81,7 @@ model_EUR.add(LSTM(50))
 model_EUR.add(Dense(1))
 model_EUR.compile(loss='mean_squared_error', optimizer='adam')
 model_EUR.summary()
-model_EUR.fit(X_train_EUR, y_train_EUR, validation_data=(X_test_EUR, ytest_EUR), epochs=10, batch_size=64, verbose=1)
+model_EUR.fit(X_train_EUR, y_train_EUR, validation_data=(X_test_EUR, ytest_EUR), epochs=5, batch_size=64, verbose=1)
 
 # Lets Do the prediction and check performance metrics
 train_predict_EUR = model_EUR.predict(X_train_EUR)
@@ -97,7 +97,7 @@ math.sqrt(mean_squared_error(y_train_EUR, train_predict_EUR))
 # Test Data RMSE
 math.sqrt(mean_squared_error(ytest_EUR, test_predict_EUR))
 
-print(len(test_data_EUR))  # 446
+# print(len(test_data_EUR))  # 446
 
 x_input_EUR = test_data_EUR[346:].reshape(1, -1)
 temp_input_EUR = list(x_input_EUR)
@@ -127,7 +127,6 @@ while i_EUR < 30:
         i_EUR = i_EUR + 1
 
 predictions_EUR = scaler_EUR.inverse_transform(lst_output_EUR).tolist()
-print(predictions_EUR)
 
 def main():
     st.title('Exchange Prediction EUR App')
