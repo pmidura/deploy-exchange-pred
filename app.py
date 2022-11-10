@@ -11,6 +11,7 @@ from sklearn.metrics import mean_squared_error
 from datetime import date, timedelta
 import requests
 import time
+import streamlit as st
 
 # THIS FUNCTION CAN BE USED TO CREATE A TIME SERIES DATASET FROM ANY 1D ARRAY
 def new_dataset(dataset, step_size):
@@ -127,3 +128,10 @@ while i_EUR < 30:
 
 predictions_EUR = scaler_EUR.inverse_transform(lst_output_EUR).tolist()
 print(predictions_EUR)
+
+def main():
+    st.title('Exchange Prediction EUR App')
+    st.text(predictions_EUR)
+
+if __name__ == '__main__':
+    main()
