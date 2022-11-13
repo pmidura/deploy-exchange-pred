@@ -99,7 +99,11 @@ math.sqrt(mean_squared_error(ytest_EUR, test_predict_EUR))
 
 # print(len(test_data_EUR))  # 446
 
-x_input_EUR = test_data_EUR[346:].reshape(1, -1)
+if len(test_data_EUR) == 446:
+    x_input_EUR = test_data_EUR[346:].reshape(1, -1)
+else:
+    x_input_EUR = test_data_EUR[345:].reshape(1, -1)
+
 temp_input_EUR = list(x_input_EUR)
 temp_input_EUR = temp_input_EUR[0].tolist()
 
